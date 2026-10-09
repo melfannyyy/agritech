@@ -1,0 +1,168 @@
+/* ═══════════════════════════════════════════
+   CropInfo — List page  (/crop-info)
+   Palette: pakai CSS vars dari index.css
+═══════════════════════════════════════════ */
+
+.ci2__page {
+  min-height: 100vh;
+  background: var(--surface);           /* #f1f5f3 — nyambung dengan app */
+  padding: calc(var(--navbar-h) + 40px) 0 64px;
+}
+
+/* ── Page header ── */
+.ci2__header {
+  width: min(100% - 32px, 1100px);
+  margin: 0 auto 36px;
+}
+
+.ci2__header h1 {
+  margin: 0 0 6px;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-head);
+}
+
+.ci2__header p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+/* ── Banner strip ── */
+.ci2__banner {
+  width: min(100% - 32px, 1100px);
+  margin: 0 auto 36px;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  border-radius: var(--radius-xl);
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ci2__banner-text h2 {
+  color: #fff;
+  font-size: 18px;
+  margin: 0 0 6px;
+}
+
+.ci2__banner-text p {
+  color: rgba(255,255,255,.78);
+  font-size: 13px;
+  margin: 0;
+  max-width: 480px;
+}
+
+.ci2__banner-icon {
+  font-size: 56px;
+  opacity: .18;
+  position: absolute;
+  right: 28px;
+  bottom: -6px;
+  pointer-events: none;
+}
+
+/* ── Grid ── */
+.ci2__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: min(100% - 32px, 1100px);
+  margin: 0 auto;
+}
+
+/* ── Card ── */
+.ci2__card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-sm);
+  transition: transform .2s, box-shadow .2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.ci2__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.ci2__card-img-wrap {
+  width: 100%;
+  height: 210px;
+  overflow: hidden;
+}
+
+.ci2__card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s;
+}
+
+.ci2__card:hover .ci2__card-img {
+  transform: scale(1.05);
+}
+
+.ci2__card-body {
+  padding: 18px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.ci2__card-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin: 0;
+  text-align: center;
+}
+
+/* "Learn More" pill — matches global .btn style */
+.ci2__learn-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1.5px solid var(--primary-border);
+  color: var(--primary-dark);
+  border-radius: 999px;
+  padding: 7px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s;
+  background: var(--primary-bg);
+}
+
+.ci2__card:hover .ci2__learn-btn {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.ci2__learn-arrow {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .ci2__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .ci2__page  { padding-top: calc(var(--navbar-h) + 24px); }
+  .ci2__grid  { grid-template-columns: 1fr; gap: 16px; }
+  .ci2__banner { padding: 20px; }
+  .ci2__banner-icon { display: none; }
+  .ci2__header h1 { font-size: 22px; }
+}

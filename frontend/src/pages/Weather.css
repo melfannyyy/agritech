@@ -1,0 +1,152 @@
+/* ── Weather ── */
+.weather__main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+  padding: 32px;
+}
+
+.weather__city-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.weather__city-icon { font-size: 16px; }
+
+.weather__city-select {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-head);
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 2px 0;
+}
+
+.weather__temp {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.weather__temp-icon { font-size: 56px; line-height: 1; }
+.weather__temp-val  { font-size: 64px; font-weight: 800; color: var(--text-head); letter-spacing: -2px; }
+
+.weather__desc {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gray-600);
+  margin-bottom: 16px;
+}
+
+.weather__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* Forecast */
+.weather__main-right h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text-head);
+}
+
+.weather__forecast {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.weather__forecast-day {
+  display: grid;
+  grid-template-columns: 36px 28px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  font-size: 14px;
+}
+
+.weather__forecast-name {
+  font-weight: 600;
+  color: var(--text-head);
+}
+
+.weather__forecast-icon { font-size: 18px; }
+
+.weather__forecast-high {
+  font-weight: 700;
+  color: var(--text-head);
+  text-align: right;
+}
+
+.weather__forecast-low {
+  color: var(--text-muted);
+  font-size: 13px;
+  text-align: right;
+}
+
+/* Tips */
+.weather__tips-section {
+  margin-bottom: 24px;
+}
+
+.weather__tips-section h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.weather__tip-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 24px;
+}
+
+.weather__tip-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.weather__tip-icon {
+  font-size: 28px;
+  width: 44px;
+  height: 44px;
+  background: var(--sky-50);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather__tip-head h3 {
+  font-size: 15px;
+}
+
+.weather__tip-card p {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.weather__info {
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .weather__main { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
+  .weather__temp-val { font-size: 48px; }
+  .weather__temp-icon { font-size: 42px; }
+}

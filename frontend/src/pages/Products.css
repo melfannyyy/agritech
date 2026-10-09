@@ -1,0 +1,108 @@
+/* ══════════════════════════════════════
+   PRODUCTS — Agri-Tech
+   ══════════════════════════════════════ */
+
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Product card */
+.products__card {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow .2s, transform .2s;
+}
+
+.products__card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+.products__img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.products__img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+  transition: transform .3s;
+}
+
+.products__card:hover .products__img {
+  transform: scale(1.03);
+}
+
+.products__category {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  backdrop-filter: blur(4px);
+}
+
+.products__body {
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.products__name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-head);
+}
+
+.products__desc {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.products__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.products__price {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--primary-dark);
+}
+
+/* Empty state */
+.products__empty {
+  text-align: center;
+  padding: 72px 24px;
+  grid-column: 1 / -1;
+}
+
+.products__empty h3 { margin-bottom: 8px; font-size: 18px; }
+.products__empty p  { color: var(--text-muted); font-size: 14px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .products__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .products__grid { grid-template-columns: 1fr; gap: 16px; }
+  .products__img  { height: 180px; }
+}

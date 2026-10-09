@@ -1,0 +1,238 @@
+/* ═══════════════════════════════════════════
+   CropDetail — Detail page  (/crop-info/:slug)
+   Palette: pakai CSS vars dari index.css
+═══════════════════════════════════════════ */
+
+.cd__page {
+  min-height: 100vh;
+  background: var(--surface);
+  padding: calc(var(--navbar-h) + 32px) 0 64px;
+}
+
+/* ── Inner wrapper ── */
+.cd__inner {
+  width: min(100% - 32px, 900px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Hero image ── */
+.cd__hero {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  height: 300px;
+}
+
+.cd__hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cd__hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.60) 0%, rgba(0,0,0,.10) 55%, transparent 100%);
+}
+
+.cd__hero-title {
+  position: absolute;
+  bottom: 24px;
+  left: 28px;
+  color: #fff;
+  font-size: 34px;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,.45);
+}
+
+/* Back button inside hero */
+.cd__back-hero {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(255,255,255,.22);
+  border: 1px solid rgba(255,255,255,.35);
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background .15s;
+}
+
+.cd__back-hero:hover {
+  background: rgba(255,255,255,.38);
+}
+
+/* ── Details card ── */
+.cd__section {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+.cd__section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin: 0 0 14px;
+}
+
+.cd__divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0 0 22px;
+}
+
+.cd__details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 48px;
+}
+
+.cd__detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.cd__detail-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--green-50);
+  border: 1px solid var(--green-200);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.cd__detail-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-head);
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+}
+
+.cd__detail-value {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ── Recommendations row ── */
+.cd__rec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.cd__rec-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px 26px;
+  box-shadow: var(--shadow-sm);
+}
+
+.cd__rec-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.cd__rec-icon { font-size: 18px; }
+
+.cd__rec-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Red = Pesticides */
+.cd__rec-card--red  { border-left: 3px solid #ef4444; }
+.cd__rec-title--red { color: #dc2626; }
+
+/* Blue = Fertilizers — use sky palette from global */
+.cd__rec-card--blue  { border-left: 3px solid var(--sky-600); }
+.cd__rec-title--blue { color: var(--sky-600); }
+
+.cd__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cd__tag {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.cd__tag--red  { background: #fee2e2; color: #b91c1c; }
+.cd__tag--blue { background: var(--sky-50); color: var(--sky-600); }
+
+/* ── Not-found state ── */
+.cd__not-found {
+  min-height: calc(100vh - var(--navbar-h));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 48px 24px;
+  color: var(--text-muted);
+}
+
+.cd__not-found h2 {
+  color: var(--text-head);
+  margin: 0;
+}
+
+/* back button (not-found + standalone) */
+.cd__back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 1.5px solid var(--primary-border);
+  color: var(--primary-dark);
+  background: var(--primary-bg);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s;
+}
+
+.cd__back-btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+/* ── Responsive ── */
+@media (max-width: 680px) {
+  .cd__hero          { height: 220px; border-radius: var(--radius-lg); }
+  .cd__hero-title    { font-size: 24px; bottom: 16px; left: 20px; }
+  .cd__details-grid  { grid-template-columns: 1fr; gap: 14px; }
+  .cd__rec-grid      { grid-template-columns: 1fr; }
+  .cd__section       { padding: 20px; }
+  .cd__rec-card      { padding: 18px 20px; }
+}
